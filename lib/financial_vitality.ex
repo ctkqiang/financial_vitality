@@ -24,6 +24,10 @@ defmodule FinancialVitality do
   def get_points("c" <> _), do: 1
   def get_points(_), do: 0
 
+  def start(_type, _args) do
+    Task.start(fn -> :timer.sleep(1000); IO.puts("done sleeping") end)
+  end
+
   # 运行命令行界面并评估财务健康状况
   def run_cli do
     banner = """
@@ -46,14 +50,12 @@ defmodule FinancialVitality do
     | 16 - 20  | 中等健康            |
     | 21 - 25  | 健康                |
     | 26 - 30  | 超级健康            |
-    +----------+--------------------+
-
+    +----------+---------------------+
     """
 
     IO.puts(banner)
 
     question_1 = IO.gets("""
-    \n
     1. 您是否使用预算管理您的每月家庭支出？
       A. 总是
       B. 有时

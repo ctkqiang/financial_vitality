@@ -77,6 +77,8 @@ defmodule FinancialVitality do
     new_count = get_points(question_1) + get_points(question_2)
 
     IO.puts("\n您的总分: #{new_count}分")
+
+    # todo add more question
   end
 end
 
